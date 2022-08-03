@@ -9,6 +9,11 @@ const duffel = new Duffel({
   token: "duffel_live_phBmqeLbtMWfCQpsrHLw6zxXEMZMZ_-VCuG5u0Vhc1Y",
 });
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 app.get("/", (req, res) => {
   res.send("Hello it is working");
 });

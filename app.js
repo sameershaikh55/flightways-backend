@@ -9,6 +9,10 @@ const duffel = new Duffel({
   token: "duffel_live_phBmqeLbtMWfCQpsrHLw6zxXEMZMZ_-VCuG5u0Vhc1Y",
 });
 
+app.get("/", (req, res) => {
+  res.send("Hello it is working");
+});
+
 app.get("/flights-list", async (req, res) => {
   const airlines = await duffel.airlines.list();
   res.json(airlines);

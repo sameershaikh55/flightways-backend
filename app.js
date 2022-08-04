@@ -1,8 +1,10 @@
 const express = require("express");
-require("dotenv").config();
+const cors = require("cors");
 const { Duffel } = require("@duffel/api");
 
 const app = express();
+
+app.use(cors());
 
 const duffel = new Duffel({
   // Store your access token in an environment variable, keep it secret and only readable on your server

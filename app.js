@@ -1,10 +1,10 @@
 const express = require("express");
-const cors = require("cors");
+// const cors = require("cors");
 const { Duffel } = require("@duffel/api");
 
 const app = express();
 
-app.use(cors());
+// app.use(cors());
 
 const duffel = new Duffel({
   // Store your access token in an environment variable, keep it secret and only readable on your server
@@ -53,6 +53,8 @@ app.get("/search-flights-return", async (req, res) => {
     passengers: [{ type: "adult" }],
     cabin_class: req.query.cabin_class,
   });
+
+  console.log(offerRequest.data.offers);
 
   res.json(offerRequest.data.offers);
 });
